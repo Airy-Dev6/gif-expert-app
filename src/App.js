@@ -1,25 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import React, { useState } from 'react'
+import AddCategory from "./Components/AddCategory/AddCategory"
+import { Container } from 'reactstrap';
+import GifGrid from './Components/GifGrid';
+
+export default function App() {
+
+  const [categories, setCategories] = useState(['Pokemon'])
+  
+
+
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Container>
+        <h1>Gif Expert App</h1>
+        
+        <AddCategory
+        setCategories= {setCategories}
+        categories = {categories}
+        />
+
+        <hr/>
+
+
+        <ol>
+          {
+            categories.map(category  => (
+              <GifGrid
+                key={category}
+                category = {category}
+              />
+            ))
+          }
+        </ol>
+      </Container>
+      
+    </>
+  )
 }
 
-export default App;
