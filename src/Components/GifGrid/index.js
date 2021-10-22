@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Col, Row } from 'reactstrap'
 import GifGridItem from '../GifGridItem'
 
 function GifGrid( {category}) {
@@ -30,15 +31,22 @@ function GifGrid( {category}) {
     <>
       <h3>{category}</h3>
 
-      
-     {
-        gifs.map(img => {
-          return<GifGridItem
-            key= {img.id}
-            { ...img }
-            />
-        })
-      }
+      <Row>
+        {
+          gifs.map(img => {
+            return(
+              <Col xs='4'>
+                <GifGridItem
+                key= {img.id}
+                { ...img }
+                />
+              </Col>
+            )
+            
+          })
+        }
+      </Row>
+     
     </>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardImg } from 'reactstrap'
+import { Card, CardBody, CardImg, CardTitle} from 'reactstrap'
 
 function GifGridItem({id, url, title}) {
   
@@ -7,9 +7,17 @@ function GifGridItem({id, url, title}) {
   
   return (
     <>
-      <Card>
-        <CardImg src={url} alt={title}/>
-      </Card>
+    
+        
+
+        <Card color="dark" className="card mb-4 text-white">
+          <CardImg src={url} alt={title}/>
+          <CardBody>
+           <CardTitle>{title}</CardTitle>
+          </CardBody>
+       </Card>
+      
+      
     </>
   )
 }
